@@ -1,11 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anime Wiki — Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">Anime Wiki</a>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="attack-on-titan.html" class="nav-link">Attack on Titan</a>
+            <a href="takopi.html" class="nav-link">Takopi's Original Sin</a>
+            <a href="lord-of-mysteries.html" class="nav-link">Lord of Mysteries</a>
+        </nav>
+    </div>
+</header>
 
+<main class="container">
+    <section class="hero">
+        <h1 class="hero-title">Discover, read, and explore anime</h1>
+        <p class="hero-sub">A compact fan-driven wiki for selected series. Clean design, easy reading, and focused summaries.</p>
+    </section>
+
+    <section class="featured">
+        <h2 class="section-title">Featured Anime</h2>
+        <div class="grid">
+            <article class="card">
+                <div class="card-media aot"></div>
+                <div class="card-content">
+                    <h3>Attack on Titan</h3>
+                    <p class="muted">A dark fantasy about humanity's fight against giant humanoid Titans.</p>
+                    <a class="read-more" href="attack-on-titan.html">Read more</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media takopi"></div>
+                <div class="card-content">
+                    <h3>Takopi's Original Sin</h3>
+                    <p class="muted">A touching story about friendship, mistakes, and second chances.</p>
+                    <a class="read-more" href="takopi.html">Read more</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media lord"></div>
+                <div class="card-content">
+                    <h3>Lord of Mysteries</h3>
+                    <p class="muted">A mysterious, cerebral tale blending investigation and supernatural powers.</p>
+                    <a class="read-more" href="lord-of-mysteries.html">Read more</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2 class="section-title">About this wiki</h2>
+        <p>This mini-wiki is designed as a simple, readable reference for selected series. Typography and color are tuned for long reading sessions. Navigation is intentionally minimal to keep focus on content.</p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© Anime wiki creators Aldiyar and Kirill.</p>
+        <nav class="footer-nav">
+            <a href="https://github.com/AldiyarMaget/Assignment2" target="_blank">GitHub</a>
+        </nav>
+    </div>
+</footer>
 </body>
 </html>
