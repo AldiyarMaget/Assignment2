@@ -152,10 +152,14 @@ body {
     box-shadow: 0 6px 18px rgba(2,6,23,0.6);
 }
 
-.card-media {
-    height: 140px;
-    background-size: cover;
-    background-position: center;
+.card-media-circular {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;   
+    margin: 0 auto 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    display: block;
 }
 
 /* Card-specific backgrounds (все картинки в фолдере img)*/
@@ -186,6 +190,7 @@ body {
     height: 140px;
 }
 
+
 .card-content {
     padding: 16px;
 }
@@ -199,6 +204,8 @@ body {
 }
 
 .read-more {
+    overflow: hidden;
+    position: relative;
     display: inline-block;
     margin-top: 10px;
     text-decoration: none;
@@ -207,6 +214,26 @@ body {
     background: rgba(255,255,255,0.03);
     color: var(--accent);
     font-weight: 600;
+    transition: color 0.6s; 
+}
+.read-more::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(25, 4, 4, 0.525);
+    background: linear-gradient(90deg, var(--accent, #7cdcff), var(--accent-2, #8a5cf6));
+    transition: all 0.6s;
+    z-index: -1;
+    transform: translateY(200%);
+}
+.read-more:hover::before {
+    transform: translateY(0);
+}
+.read-more:hover {
+    color: #081022;
 }
 
 .about {
@@ -263,6 +290,7 @@ form.contact-form button:hover {
 .anime-hero h1 {
     margin: 0;
     font-size: 28px;
+
 }
 .synopsis {
     padding: 24px;
