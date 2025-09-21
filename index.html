@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-header">
+<header class="site-header" id="top-banner">
     <div class="container header-inner">
         <a class="brand" href="index.html">Anime Wiki</a>
         <nav class="main-nav">
@@ -63,12 +63,33 @@
     <section class="about">
         <h2 class="section-title">About this wiki</h2>
         <p>This mini-wiki is designed as a simple, readable reference for selected series. Typography and color are tuned for long reading sessions. Navigation is intentionally minimal to keep focus on content.</p>
+        <form class="contact-form" action="#" method="post" aria-label="Contact form">
+            <label>
+                <span class="visually-hidden">Name</span>
+                <input type="text" name="name" placeholder="Your name">
+            </label>
+            <label>
+                <span class="visually-hidden">Email</span>
+                <input type="email" name="email" placeholder="Your email">
+            </label>
+            <label>
+                <span class="visually-hidden">Message</span>
+                <textarea name="message" rows="5" placeholder="Your message"></textarea>
+            </label>
+            <button type="submit">Send</button>
+        </form>
     </section>
 </main>
 
 <footer class="site-footer">
     <div class="container footer-inner">
-        <p>© Anime wiki creators Aldiyar and Kirill.</p>
+        <div class="team-list">
+            <strong>Team members:</strong>
+            <ul>
+                <li>Aldiyar</li>
+                <li>Kirill</li>
+            </ul>
+        </div>
         <nav class="footer-nav">
             <a href="https://github.com/AldiyarMaget/Assignment2" target="_blank">GitHub</a>
         </nav>

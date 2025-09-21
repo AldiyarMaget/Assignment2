@@ -13,12 +13,17 @@
     --radius: 12px;
 }
 
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c9d6e6;
+}
+
 * {
     box-sizing: border-box;
 }
 
-html,
-body {
+html,body {
     height: 100%;
 }
 
@@ -50,6 +55,12 @@ body {
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+#top-banner {
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(90deg, rgba(124,219,255,0.04), rgba(139,92,246,0.02));
 }
 
 .header-inner {
@@ -112,6 +123,17 @@ body {
 .section-title {
     font-size: 20px;
     margin: 18px 0;
+}
+
+.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: linear-gradient(90deg, var(--accent, #7cdbff), var(--accent-2, #8b5cf6));
+    border-radius: 4px;
 }
 
 /*
@@ -187,9 +209,45 @@ body {
     font-weight: 600;
 }
 
-
 .about {
     margin-top: 18px;
+}
+
+form.contact-form {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    max-width: 520px;
+}
+
+form.contact-form input[type="text"],
+form.contact-form input[type="email"],
+form.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.01);
+    color: var(--text, #e6eef8);
+    font-size: 0.95rem;
+}
+
+form.contact-form button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--accent, #7cdbff), var(--accent-2, #8b5cf6));
+    color: #081022;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+form.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124,219,255,0.08);
 }
 
 .anime-page {
