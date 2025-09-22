@@ -370,28 +370,3 @@ form.contact-form button:hover {
     color: var(--muted);
     text-decoration: none;
 }
-
-
-@media (max-width: 880px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .header-inner {
-        gap: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 26px;
-    }
-
-    .container {
-        padding: 16px;
-    }
-}
