@@ -37,10 +37,19 @@ body {
     line-height: 1.5;
 }
 
-/*
+/* 
    Layout helpers
     */
+.page-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
 .container {
+    grid-area: main;
     max-width: 1100px;
     margin: 0 auto;
     padding: 28px;
@@ -50,6 +59,7 @@ body {
    Header / Navigation
     */
 .site-header {
+    grid-area: header;
     backdrop-filter: blur(4px);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
     position: sticky;
@@ -146,6 +156,10 @@ body {
 }
 
 .card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
     border-radius: var(--radius);
     overflow: hidden;
@@ -185,14 +199,21 @@ body {
     background-image:
             linear-gradient(120deg, rgba(124,219,255,0.12), rgba(139,92,246,0.06)),
             url('img/lord.png');
-    background-size: cover;
+    background-size: cover; 
     background-position: center;
     height: 140px;
 }
 
+.card:hover {
+  transform: translateY(-6px) scale(1.02); /* simple lift */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 .card-content {
-    padding: 16px;
+    padding: 16px;  
+    flex: 1;
 }
 
 .card h3 {
@@ -291,7 +312,7 @@ form.contact-form button:hover {
     margin: 0;
     font-size: 28px;
 
-}
+}   
 .synopsis {
     padding: 24px;
     background: linear-gradient(90deg, rgba(124,219,255,0.03), rgba(139, 92, 246, 0.11));
@@ -338,6 +359,7 @@ form.contact-form button:hover {
 
 /* Sidebar cards */
 .sidebar .card.small {
+    grid-area: sidebar;
     padding: 14px;
     margin-bottom: 12px;
     background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
@@ -355,9 +377,13 @@ form.contact-form button:hover {
 }
 
 .site-footer {
+    grid-area: footer;
     margin-top: 40px;
     padding: 20px 0;
     border-top: 1px solid rgba(255,255,255,0.03);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .footer-inner {
