@@ -43,7 +43,7 @@ body {
 .page-layout {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
         "header header"
         "sidebar main"
         "footer footer";
@@ -395,4 +395,90 @@ form.contact-form button:hover {
 .footer-inner a {
     color: var(--muted);
     text-decoration: none;
+}
+
+/* ========== Image gallery (Task 4) ========== */
+.gallery-section {
+    margin-top: 28px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* responsive equal columns: 3 columns on desktop, auto-fit on narrow screens */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; /* consistent spacing between images */
+    align-items: stretch;
+}
+
+/* Each item is a square (equal rows) thanks to aspect-ratio */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    cursor: pointer;
+    /* ensure equal height across grid: square tiles */
+    aspect-ratio: 1 / 1;
+    display: block;
+}
+
+/* Image fills the item */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    vertical-align: middle;
+    transition: transform 0.4s ease;
+}
+
+/* Slight zoom on hover/focus for visual feedback */
+.gallery-item:hover img,
+.gallery-item:focus-within img {
+    transform: scale(1.06);
+}
+
+/* Overlay caption */
+.gallery-item .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, rgba(0,0,0,0), rgba(2,6,23,0.6));
+    color: var(--text);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    pointer-events: none; /* overlay passive until visible */
+}
+
+/* Show overlay on hover or keyboard focus */
+.gallery-item:hover .overlay,
+.gallery-item:focus-within .overlay {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Caption text styling */
+.caption-text {
+    font-weight: 600;
+    background: rgba(0,0,0,0.25);
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+/* make items keyboard-accessible: add a hidden link or tabindex */
+.gallery-item {
+    outline: none;
+}
+.gallery-item:focus {
+    box-shadow: 0 0 0 3px rgba(124,219,255,0.15), 0 6px 18px rgba(2,6,23,0.45);
 }
