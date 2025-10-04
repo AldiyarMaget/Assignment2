@@ -13,6 +13,11 @@
     --radius: 12px;
 }
 
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
 p {
     font-size: 1rem;
     line-height: 1.6;
@@ -35,8 +40,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5;
+    font-size: 1rem;
 }
-
 /* 
    Layout helpers
     */
@@ -84,7 +89,7 @@ body {
     letter-spacing: 0;
     color: var(--accent);
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .main-nav {
@@ -120,18 +125,20 @@ body {
 }
 
 .hero-title {
-    font-size: 36px;
+    font-size: 2.25rem;
     margin: 0 0 8px;
 }
 
 .hero-sub {
+    font-size: 1rem;
     color: var(--muted);
     max-width: 720px;
     margin: 0 auto;
 }
 
+
 .section-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 18px 0;
 }
 
@@ -149,10 +156,17 @@ body {
 /*
    Cards grid (featued anime)
     */
+/*.grid {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));*/
+/*    gap: 18px;*/
+/*}*/
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
+    align-items: stretch;
 }
 
 .card {
@@ -170,7 +184,7 @@ body {
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    object-fit: cover;   
+    object-fit: cover;
     margin: 0 auto 12px;
     box-shadow: 0 6px 18px rgba(2,6,23,0.6);
     display: block;
@@ -199,20 +213,20 @@ body {
     background-image:
             linear-gradient(120deg, rgba(124,219,255,0.12), rgba(139,92,246,0.06)),
             url('img/lord.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     height: 140px;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.02); /* simple lift */
-  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(-6px) scale(1.02); /* simple lift */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 .card-content {
-    padding: 16px;  
+    padding: 16px;
     flex: 1;
 }
 
@@ -235,7 +249,7 @@ body {
     background: rgba(255,255,255,0.03);
     color: var(--accent);
     font-weight: 600;
-    transition: color 0.6s; 
+    transition: color 0.6s;
 }
 .read-more::before{
     content: "";
@@ -309,10 +323,9 @@ form.contact-form button:hover {
 }
 
 .anime-hero h1 {
+    font-size: 1.75rem;
     margin: 0;
-    font-size: 28px;
-
-}   
+}
 .synopsis {
     padding: 24px;
     background: linear-gradient(90deg, rgba(124,219,255,0.03), rgba(139, 92, 246, 0.11));
@@ -397,20 +410,17 @@ form.contact-form button:hover {
     text-decoration: none;
 }
 
-/* ========== Image gallery (Task 4) ========== */
 .gallery-section {
     margin-top: 28px;
 }
 
 .gallery-grid {
     display: grid;
-    /* responsive equal columns: 3 columns on desktop, auto-fit on narrow screens */
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 12px; /* consistent spacing between images */
     align-items: stretch;
 }
 
-/* Each item is a square (equal rows) thanks to aspect-ratio */
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -418,12 +428,10 @@ form.contact-form button:hover {
     background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
     box-shadow: 0 6px 18px rgba(2,6,23,0.45);
     cursor: pointer;
-    /* ensure equal height across grid: square tiles */
     aspect-ratio: 1 / 1;
     display: block;
 }
 
-/* Image fills the item */
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -433,13 +441,11 @@ form.contact-form button:hover {
     transition: transform 0.4s ease;
 }
 
-/* Slight zoom on hover/focus for visual feedback */
 .gallery-item:hover img,
 .gallery-item:focus-within img {
     transform: scale(1.06);
 }
 
-/* Overlay caption */
 .gallery-item .overlay {
     position: absolute;
     left: 0;
@@ -454,10 +460,9 @@ form.contact-form button:hover {
     display: flex;
     align-items: flex-end;
     height: 100%;
-    pointer-events: none; /* overlay passive until visible */
+    pointer-events: none;
 }
 
-/* Show overlay on hover or keyboard focus */
 .gallery-item:hover .overlay,
 .gallery-item:focus-within .overlay {
     transform: translateY(0%);
@@ -465,7 +470,6 @@ form.contact-form button:hover {
     pointer-events: auto;
 }
 
-/* Caption text styling */
 .caption-text {
     font-weight: 600;
     background: rgba(0,0,0,0.25);
@@ -475,10 +479,30 @@ form.contact-form button:hover {
     margin-bottom: 8px;
 }
 
-/* make items keyboard-accessible: add a hidden link or tabindex */
 .gallery-item {
     outline: none;
 }
 .gallery-item:focus {
     box-shadow: 0 0 0 3px rgba(124,219,255,0.15), 0 6px 18px rgba(2,6,23,0.45);
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    html { font-size: 15px; }
+    .hero-title { font-size: 2rem; }
+    .anime-hero h1 { font-size: 1.6rem; }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    html { font-size: 14px; }
+    .hero-title { font-size: 1.857rem; }
+    .section-title { font-size: 1.125rem; }
+    .anime-hero h1 { font-size: 1.428rem; }
+    p { font-size: 0.95rem; }
+    .brand { font-size: 1.125rem; }
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
