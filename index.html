@@ -1,154 +1,101 @@
-<!--TODO Киря, сделай сразу с репортом и футер не удаляй в асике сказано мемберы должны быть указаны-->
-<!--Оки-->
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap</title>
 
-    <title>Anime Wiki — Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container page-layout">
-<header class="site-header" id="top-banner">
-    <div class="container header-inner">
-        <a class="brand" href="index.html">Anime Wiki</a>
-        <nav class="main-nav">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="attack-on-titan.html" class="nav-link">Attack on Titan</a>
-            <a href="takopi.html" class="nav-link">Takopi's Original Sin</a>
-            <a href="lord-of-mysteries.html" class="nav-link">Lord of Mysteries</a>
-        </nav>
-    </div>
-</header>
 
-<main class="container">
-    <section class="hero">
-        <h1 class="hero-title">Discover, read, and explore anime</h1>
-        <p class="hero-sub">A compact fan-driven wiki for selected series. Clean design, easy reading, and focused summaries.</p>
-    </section>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="#">AnimeWiki</a>
 
-    <section class="featured">
-        <h2 class="section-title">Featured Anime</h2>
-        <div class="grid">
-            <article class="card">
-                <div class="card-media aot"></div>
-                <div class="card-content">
-                    <h3>Attack on Titan</h3>
-                    <p class="muted">A dark fantasy about humanity's fight against giant humanoid Titans.</p>
-                    <a class="read-more" href="attack-on-titan.html">Read more</a>
-                </div>
-            </article>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <article class="card">
-                <div class="card-media takopi"></div>
-                <div class="card-content">
-                    <h3>Takopi's Original Sin</h3>
-                    <p class="muted">A touching story about friendship, mistakes, and second chances.</p>
-                    <a class="read-more" href="takopi.html">Read more</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="card-media lord"></div>
-                <div class="card-content">
-                    <h3>Lord of Mysteries</h3>
-                    <p class="muted">A mysterious, cerebral tale blending investigation and supernatural powers.</p>
-                    <a class="read-more" href="lord-of-mysteries.html">Read more</a>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="about">
-        <h2 class="section-title">About this wiki</h2>
-        <p style="text-decoration: underline;">This mini-wiki is designed as a simple, readable reference for selected series. Typography and color are tuned for long reading sessions. Navigation is intentionally minimal to keep focus on content.</p>
-        <form class="contact-form" action="#" method="post" aria-label="Contact form">
-            <label>
-                <span class="visually-hidden">Name</span>
-                <input type="text" name="name" placeholder="Your name">
-            </label>
-            <label>
-                <span class="visually-hidden">Email</span>
-                <input type="email" name="email" placeholder="Your email">
-            </label>
-            <label>
-                <span class="visually-hidden">Message</span>
-                <textarea name="message" rows="5" placeholder="Your message"></textarea>
-            </label>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-    <section class="gallery-section">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-grid" role="list">
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery1.jpg" alt="Gallery image 1 — description" loading="lazy">
-                <figcaption class="overlay">
-                    <span class="caption-text">Caption 1</span>
-                </figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery2.jpg" alt="Gallery image 2 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 2</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery3.jpg" alt="Gallery image 3 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 3</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery4.jpg" alt="Gallery image 4 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 4</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery5.jpg" alt="Gallery image 5 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 5</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery6.jpg" alt="Gallery image 6 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 6</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery7.jpg" alt="Gallery image 7 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 7</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery8.jpg" alt="Gallery image 8 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 8</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery9.jpg" alt="Gallery image 9 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 9</span></figcaption>
-            </figure>
-            <figure class="gallery-item" role="listitem">
-                <img src="img/gallery10.jpg" alt="Gallery image 10 — description" loading="lazy">
-                <figcaption class="overlay"><span class="caption-text">Caption 10</span></figcaption>
-            </figure>
-        </div>
-    </section>
-
-</main>
-
-<footer class="site-footer">
-    <div class="container footer-inner">
-        <div class="team-list">
-            <strong>Team members:</strong>
-            <ul>
-                <li>Aldiyar</li>
-                <li>Kirill</li>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
             </ul>
+                <a class="btn btn-outline-light btn-sm" href="#">Sign in</a>
         </div>
-        <nav class="footer-nav">
-            <a href="https://github.com/AldiyarMaget/Assignment2" target="_blank">GitHub</a>
-        </nav>
     </div>
-</footer>
+</nav>
+<div class="container px-sm-2 py-3">
+    <section class="mt-lg-4 mb-4">
+        <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-6">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h5 class="card-title mb-2">Two-column — Left</h5>
+                        <p class="card-text mb-0">Этот блок использует <code>col-12 col-sm-6 col-lg-6</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-6">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h5 class="card-title mb-2">Two-column — Right</h5>
+                        <p class="card-text mb-0">Правая колонка — та же логика. Карточки сохранены</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
+<div class="container px-sm-2 py-3">
+    <section class="mt-lg-4 mb-4">
+        <div class="row g-3">
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h6 class="card-title mb-2">Column 1</h6>
+                        <p class="card-text mb-0">Использует <code>col-12 col-sm-6 col-md-4</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h6 class="card-title mb-2">Column 2</h6>
+                        <p class="card-text mb-0">Адаптивно: 1 / 2 / 3 колонки</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h6 class="card-title mb-2">Column 3</h6>
+                        <p class="card-text mb-0">Третья колонка.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
