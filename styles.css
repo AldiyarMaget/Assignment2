@@ -512,3 +512,8 @@ form.contact-form button:hover {
         grid-template-columns: 1fr;
     }
 }
+.carousel-item img {
+  height: 400px; 
+  object-fit: cover;
+  border-radius: 15px;
+}
