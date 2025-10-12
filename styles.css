@@ -275,7 +275,7 @@ body {
     margin-top: 18px;
 }
 
-form.contact-form {
+form.form-container {
     margin-top: 16px;
     padding: 12px;
     background: rgba(255,255,255,0.02);
@@ -283,9 +283,9 @@ form.contact-form {
     max-width: 520px;
 }
 
-form.contact-form input[type="text"],
-form.contact-form input[type="email"],
-form.contact-form textarea {
+form.form-container input[type="text"],
+form.form-container input[type="email"],
+form.form-container textarea {
     width: 100%;
     padding: 10px 12px;
     margin-bottom: 10px;
@@ -296,7 +296,7 @@ form.contact-form textarea {
     font-size: 0.95rem;
 }
 
-form.contact-form button {
+form.form-container button {
     padding: 10px 14px;
     border: none;
     border-radius: 8px;
@@ -307,7 +307,7 @@ form.contact-form button {
     transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-form.contact-form button:hover {
+form.form-container button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(124,219,255,0.08);
 }
@@ -506,3 +506,26 @@ form.contact-form button:hover {
         grid-template-columns: 1fr;
     }
 }
+
+    .faq {
+      border-bottom: 1px solid #0f1724;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .faq h3 {
+      margin: 0;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .faq:hover h3 {
+      color: #083a70;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 32px;
+      font-size: 16px;
+      color: #ffffff;
+    }

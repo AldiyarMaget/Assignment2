@@ -1,5 +1,4 @@
-<!--TODO Киря, сделай сразу с репортом и футер не удаляй в асике сказано мемберы должны быть указаны-->
-<!--Оки-->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -67,21 +66,26 @@
     <section class="about">
         <h2 class="section-title">About this wiki</h2>
         <p style="text-decoration: underline;">This mini-wiki is designed as a simple, readable reference for selected series. Typography and color are tuned for long reading sessions. Navigation is intentionally minimal to keep focus on content.</p>
-        <form class="contact-form" action="#" method="post" aria-label="Contact form">
+
+        <h2 id="contact-toggle" style="cursor: pointer;">Contact Us</h2>
+        <form class="form-container" action="#" method="post" aria-label="Contact form" id="contact-form" style="display: none;">
             <label>
                 <span class="visually-hidden">Name</span>
-                <input type="text" name="name" placeholder="Your name">
+                <input type="text" id="name" name="name" placeholder="Your name">
             </label>
             <label>
                 <span class="visually-hidden">Email</span>
-                <input type="email" name="email" placeholder="Your email">
+                <input type="email" id="email" name="email" placeholder="Your email">
             </label>
             <label>
                 <span class="visually-hidden">Message</span>
-                <textarea name="message" rows="5" placeholder="Your message"></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea>
             </label>
             <button type="submit">Send</button>
+            <p id="error-message" class="error" style="color: red;"></p>
         </form>
+
+
     </section>
     <section class="gallery-section">
         <h2 class="section-title">Gallery</h2>
@@ -131,6 +135,22 @@
         </div>
     </section>
 
+      <h1>Frequently Asked Questions</h1>
+
+  <div class="faq">
+    <h3>Will there be more anime available?</h3>
+    <p class="answer">Yes, we are constantly updating our library with new titles.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Is there manga version of the wiki?</h3>
+    <p class="answer">No, but we are working to make one available in the future.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Is wiki free to use?</h3>
+    <p class="answer">Yes, the wiki is completely free to use, all content available without any subscriptions.</p>
+  </div>
 </main>
 
 <footer class="site-footer">
@@ -145,9 +165,11 @@
         <nav class="footer-nav">
             <a href="https://github.com/AldiyarMaget/Assignment2" target="_blank">GitHub</a>
         </nav>
-    </div>
+    </div>  
 </footer>
 </div>
+
+<script src="main.js"></script>
 
 </body>
 </html>
