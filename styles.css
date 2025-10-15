@@ -267,12 +267,34 @@ body {
     margin-top: 18px;
 }
 
-form.form-container {
-    margin-top: 16px;
-    padding: 12px;
-    background: rgba(255,255,255,0.02);
-    border-radius: 8px;
-    max-width: 520px;
+.form-window {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #071023;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: #071f42;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 15px #081022;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 40px;
+  cursor: pointer;
 }
 
 form.form-container input[type="text"],
@@ -500,27 +522,47 @@ form.form-container button:hover {
     }
 }
 
-.faq {
-    border-bottom: 1px solid #0f1724;
-    padding: 10px 0;
+.form-button {
     cursor: pointer;
+    background: linear-gradient(90deg, var(--accent, #7cdbff), var(--accent-2, #8b5cf6));
+    border: none;
+    color: #081022;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 25px;
 }
 
-.faq h3 {
-    margin: 0;
-    font-size: 18px;
-    transition: color 0.3s;
+.faq {
+  width: 600px;
+
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  border: none;
+  background-color: #071f42;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  font-size: 23px;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: background-color 0.2s;
 }
 
-.faq:hover h3 {
-    color: #083a70;
+.faq-question:hover {
+  background-color: #083a70;
 }
 
 .answer {
-    display: none;
-    margin-top: 32px;
-    font-size: 16px;
-    color: #ffffff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 0 15px;
 }
 
 .bg-btn {

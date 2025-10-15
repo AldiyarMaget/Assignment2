@@ -81,25 +81,6 @@
             <h2 class="section-title">About this wiki</h2>
             <p style="text-decoration: underline;">This mini-wiki is designed as a simple, readable reference for selected series. Typography and color are tuned for long reading sessions. Navigation is intentionally minimal to keep focus on content.</p>
 
-            <h2 id="contact-toggle" style="cursor: pointer;">Contact Us</h2>
-            <form class="form-container" action="#" method="post" aria-label="Contact form" id="contact-form" style="display: none;">
-                <label>
-                    <span class="visually-hidden">Name</span>
-                    <input type="text" id="name" name="name" placeholder="Your name">
-                </label>
-                <label>
-                    <span class="visually-hidden">Email</span>
-                    <input type="email" id="email" name="email" placeholder="Your email">
-                </label>
-                <label>
-                    <span class="visually-hidden">Message</span>
-                    <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea>
-                </label>
-                <button type="submit">Send</button>
-                <p id="error-message" class="error" style="color: red;"></p>
-            </form>
-
-
         </section>
         <section class="gallery-section">
             <h2 class="section-title">Gallery</h2>
@@ -152,19 +133,38 @@
         <h1>Frequently Asked Questions</h1>
 
         <div class="faq">
-            <h3>Will there be more anime available?</h3>
-            <p class="answer">Yes, we are constantly updating our library with new titles.</p>
+            <button class="faq-question">Will there be more anime available?</button>
+            <div class="answer">Yes, we are constantly updating our library with new titles.</div>
+
+            <button class="faq-question">Is there manga version of the wiki?</button>
+            <div class="answer">No, but we are working to make one available in the future.</div>
+            
+            <button class="faq-question">Is wiki free to use?</button>
+            <div class="answer">Yes, the wiki is completely free to use, all content available without any subscriptions.</div>
+        </div>
+                
+        <button id="contact-toggle" class="form-button">Contact Us</button>
+        <div id="form-window" class="form-window">
+            <form class="form-container" aria-label="Contact form" id="contact-form">
+                <span class="close" id="close-btn">&times;</span>
+                <label>
+                    <span class="visually-hidden">Name</span>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </label>
+                <label>
+                    <span class="visually-hidden">Email</span>
+                    <input type="email" id="email" name="email" placeholder="Your email">
+                </label>
+                <label>
+                    <span class="visually-hidden">Message</span>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea>
+                </label>
+                <button type="submit">Send</button>
+                <p id="error-message" class="error" style="color: red;"></p>
+            </form>
         </div>
 
-        <div class="faq">
-            <h3>Is there manga version of the wiki?</h3>
-            <p class="answer">No, but we are working to make one available in the future.</p>
-        </div>
 
-        <div class="faq">
-            <h3>Is wiki free to use?</h3>
-            <p class="answer">Yes, the wiki is completely free to use, all content available without any subscriptions.</p>
-        </div>
     </main>
 
     <footer class="site-footer">
@@ -183,7 +183,7 @@
     </footer>
 </div>
 
-<script src="main.js"></script>
+<script src="main.js"></script> 
 
 </body>
 </html>

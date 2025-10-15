@@ -1,15 +1,17 @@
-const form = document.getElementById('contact-form');
+const contactBtn = document.getElementById('contact-toggle');
+const contactWindow = document.getElementById('form-window');
+const contactClose = document.getElementById('close-btn');
+const accordionHeaders = document.querySelectorAll('.faq-question');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('message');
 const errorMessage = document.querySelector('.error');
-const faqs = document.querySelectorAll('.faq');
 
+contactWindow.addEventListener('submit', function(event) {
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
     errorMessage.textContent = '';
     if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+        event.preventDefault();
         errorMessage.textContent = 'Заполните все поля формы.';
         return;
     }
@@ -17,26 +19,42 @@ form.addEventListener('submit', function(event) {
     alert(`Спасибо за ваш отзыв!`);
 });
 
-faqs.forEach(faq => {
-    faq.addEventListener('click', () => {
-        const answer = faq.querySelector('.answer');
-        if (answer.style.display === 'block') {
-            answer.style.display = 'none';
-        } else {
-            answer.style.display = 'block';
-        }
+
+
+accordionHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const content = header.nextElementSibling;
+
+    header.classList.toggle('active');
+
+    if (header.classList.contains('active')) {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    } else {
+      content.style.maxHeight = 0;
+    }
+
+    accordionHeaders.forEach(otherHeader => {
+      if (otherHeader !== header) {
+        otherHeader.classList.remove('active');
+        otherHeader.nextElementSibling.style.maxHeight = 0;
+      }
     });
+  });
 });
 
-const contactToggle = document.getElementById('contact-toggle');
-contactToggle.addEventListener('click', () => {
-    if (form.style.display === 'none' || form.style.display === '') {
-        form.style.display = 'block';
-    }
-    else {
-        form.style.display = 'none';
-    }
+
+contactBtn.addEventListener('click', () => {
+  contactWindow.style.display = 'flex';
 });
+contactClose.addEventListener('click', () => {
+  contactWindow.style.display = 'none';
+});
+window.addEventListener('click', (event) => {
+  if (event.target === contactWindow) {
+    contactWindow.style.display = 'none';
+  }
+});
+
 
 (function() {
     const btn = document.getElementById('bg-btn');
