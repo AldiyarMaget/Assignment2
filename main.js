@@ -248,6 +248,139 @@ window.addEventListener('click', (event) => {
     }
 })();
 
+(function() {
+    const dateEl = document.getElementById('date-time');
+    const place = dateEl ? dateEl.parentNode : document.querySelector('.hero') || document.body;
+
+    let loadBtn = document.getElementById('load-quote');
+    if (!loadBtn) {
+        loadBtn = document.createElement('button');
+        loadBtn.type = 'button';
+        loadBtn.id = 'load-quote';
+        loadBtn.textContent = 'Load quote';
+        loadBtn.className = 'bg-btn'; // reuse existing button style
+        loadBtn.style.marginLeft = '8px';
+        place.appendChild(loadBtn);
+    }
+
+    let quoteArea = document.getElementById('quote-area');
+    if (!quoteArea) {
+        quoteArea = document.createElement('div');
+        quoteArea.id = 'quote-area';
+        quoteArea.style.marginTop = '8px';
+        quoteArea.style.color = 'var(--muted)';
+        quoteArea.style.maxWidth = '420px';
+        place.appendChild(quoteArea);
+    }
+
+    loadBtn.addEventListener('click', async () => {
+        try {
+            loadBtn.disabled = true;
+            const prev = loadBtn.textContent;
+            loadBtn.textContent = 'Loading...';
+            quoteArea.textContent = '';
+
+            const res = await fetch('https://api.quotable.io/random');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            quoteArea.textContent = data && data.content ? data.content : 'No quote found';
+
+            if (window.siteUtils && typeof siteUtils.playBeep === 'function') siteUtils.playBeep(760, 120);
+            if (window.siteUtils && typeof siteUtils.animatePop === 'function') siteUtils.animatePop(loadBtn, 6, 140);
+        } catch (err) {
+            console.error('Quote load error', err);
+            quoteArea.textContent = 'Error loading quote';
+        } finally {
+            loadBtn.disabled = false;
+            loadBtn.textContent = 'Load quote';
+        }
+    });
+})();
+
+(function() {
+    let form = document.getElementById('contact-form');
+    if (!form) {
+        form = document.createElement('form');
+        form.id = 'contact-form';
+        form.style.marginTop = '16px';
+        form.innerHTML = `
+      <input type="text" placeholder="Your name"><br>
+      <input type="email" placeholder="Your email"><br>
+      <textarea placeholder="Your message"></textarea><br>
+    `;
+        document.body.appendChild(form);
+    }
+
+    let resetBtn = document.getElementById('reset-btn');
+    if (!resetBtn) {
+        resetBtn = document.createElement('button');
+        resetBtn.type = 'button';
+        resetBtn.id = 'reset-btn';
+        resetBtn.textContent = 'Reset form';
+        resetBtn.className = 'bg-btn';
+        resetBtn.style.marginTop = '6px';
+        form.appendChild(resetBtn);
+    }
+
+    resetBtn.addEventListener('click', () => {
+        document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(i => i.value = '');
+        if (window.siteUtils?.playBeep) siteUtils.playBeep(420, 100);
+        if (window.siteUtils?.animatePop) siteUtils.animatePop(resetBtn, 6, 120);
+    });
+})();
+
+(function() {
+    let container = document.getElementById('items');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'items';
+        container.style.marginTop = '16px';
+        document.body.appendChild(container);
+    }
+
+    let loadBtn = document.getElementById('load-more');
+    if (!loadBtn) {
+        loadBtn = document.createElement('button');
+        loadBtn.id = 'load-more';
+        loadBtn.className = 'bg-btn';
+        loadBtn.textContent = 'Load more posts';
+        loadBtn.style.display = 'block';
+        loadBtn.style.marginTop = '8px';
+        document.body.appendChild(loadBtn);
+    }
+
+    loadBtn.addEventListener('click', async () => {
+        try {
+            loadBtn.disabled = true;
+            loadBtn.textContent = 'Loading...';
+            const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+
+            data.forEach(p => {
+                const el = document.createElement('article');
+                el.innerHTML = `<h4>${p.title}</h4><p>${p.body}</p>`;
+                el.style.border = '1px solid var(--border)';
+                el.style.padding = '8px';
+                el.style.marginTop = '8px';
+                el.style.borderRadius = '6px';
+                container.appendChild(el);
+            });
+
+            if (window.siteUtils?.playBeep) siteUtils.playBeep(540, 120);
+            if (window.siteUtils?.animatePop) siteUtils.animatePop(loadBtn, 6, 120);
+        } catch (err) {
+            console.error('Load more failed:', err);
+            container.innerHTML += '<p style="color:red;">Error loading posts</p>';
+        } finally {
+            loadBtn.disabled = false;
+            loadBtn.textContent = 'Load more posts';
+        }
+    });
+})();
+
+
+
 if (navLinks.length) {
     navLinks.forEach((link, idx) => {
         link.setAttribute('tabindex', '0');
@@ -462,7 +595,6 @@ function processList(items, fn) {
     const captionEls = Array.from(document.querySelectorAll('.caption-text'));
     if (!captionEls.length) return;
     processList(captionEls, (el, i) => {
-        // добавим индекс в конец подписи (не меняем оригинальный текст сильно)
         el.textContent = el.textContent.replace(/\s*$/, '') + ` (${i+1})`;
     });
 })();
