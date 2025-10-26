@@ -713,23 +713,8 @@ html, body {
     margin-right: 12px;
 }
 
-.date-time {
-    font-size: 0.9rem;
-    color: var(--muted);
-    padding: 6px 10px;
-    border-radius: 8px;
-    background: transparent;
-    border: 1px solid transparent;
-    min-width: 0;
-    max-width: 260px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 .bg-btn {
-    display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 6px 10px;
@@ -791,4 +776,152 @@ main.container, .header-inner, .footer-inner, .page-layout > main > .container {
 html, body {
     overflow-x: hidden;
     box-sizing: border-box;
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: middle;
+    max-width: 320px;
+    z-index: 9999;
+}
+
+.search-container .suggestions {
+    list-style: none;
+    margin: 6px 0 0 0;
+    padding: 6px 6px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    background: rgba(18,22,28,0.96);     /* dark, semi-opaque background */
+    color: #ffffff;                      /* white text for contrast */
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    max-height: 260px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    display: none;                       /* shown/hidden by JS */
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: white;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+#search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 100, 200, 0.08);
+    border-color: rgba(10,100,200,0.6);
+}
+.suggestions {
+    list-style: none;
+    margin: 6px 0 0 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.09);
+    border-radius: 6px;
+    max-height: 220px;
+    overflow-y: auto;
+    box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+    z-index: 60;
+    display: none;
+}
+.suggestions li {
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.suggestions li:hover, .suggestions li.active {
+    background: rgba(10,100,200,0.06);
+}
+.search-highlight {
+    background: #fff176; /* soft yellow */
+    padding: 0 0.12rem;
+    border-radius: 2px;
+}
+
+/* ====== Scroll progress bar (Task 4) ====== */
+#scroll-progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform-origin: left center;
+    transition: width 200ms linear;
+    background: linear-gradient(90deg, #7cdbff 0%, #8b5cf6 45%, #ffb86b 100%);
+    box-shadow: 0 6px 20px rgba(139,92,246,0.16), inset 0 -1px 0 rgba(0,0,0,0.08);
+    border-radius: 0 6px 6px 0;
+    overflow: hidden;
+}
+
+
+/* small animated shimmer using pseudo element on the bar */
+#scroll-progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 6px;
+    pointer-events: none;
+    z-index: 2147483646;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+#scroll-progress-bar::after{
+    content: "";
+    position: absolute;
+    left: -60%;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.06), rgba(255,255,255,0.00) 40%, rgba(255,255,255,0.06) 80%);
+    transform: translateX(0);
+    animation: shimmer 3s linear infinite;
+    mix-blend-mode: overlay;
+}
+
+/* ====== Stats counters (Task 5) ====== */
+.stats-section {
+    margin: 26px 0;
+    padding: 18px 12px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    box-shadow: 0 8px 28px rgba(2,6,23,0.35);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: center;
+    justify-items: stretch;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.stat {
+    text-align: center;
+    padding: 16px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+.stat-number {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+}
+.stat-label {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: var(--muted);
 }

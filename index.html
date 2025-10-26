@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,9 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
+<div id="scroll-progress" data-scroller=".page-layout" aria-hidden="true">
+    <div id="scroll-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+</div>
 <div class="page-layout">
 
     <header class="site-header" id="top-banner">
@@ -26,10 +28,16 @@
                     <a href="lord-of-mysteries.html" class="nav-link">Lord of Mysteries</a>
                 </nav>
 
+                <div class="search-container" aria-hidden="false">
+                    <label for="search-input" class="visually-hidden">Search site</label>
+                    <input id="search-input" type="search" placeholder="Search anime, FAQs, gallery..." aria-label="Search" autocomplete="off" />
+                    <ul id="suggestions" class="suggestions" role="listbox" aria-hidden="true"></ul>
+                </div>
+
                 <div id="date-time" class="date-time" aria-live="polite" aria-atomic="true" title="Current date and time">
                 </div>
 
-                <button id="bg-btn" class="bg-btn" type="button" title="BOOOOO!!!">
+                <button id="bg-btn" class="bg-btn" type="button" aria-pressed="false" title="BOOOOO!!!">
                     <span class="bg-icon" aria-hidden="true">⟲</span>
                     <span class="bg-label">Bg</span>
                 </button>
@@ -43,6 +51,24 @@
         <section class="hero">
             <h1 class="hero-title">Discover, read, and explore anime</h1>
             <p class="hero-sub">A compact fan-driven wiki for selected series. Clean design, easy reading, and focused summaries.</p>
+            <p class="piska"></p>
+        </section>
+
+        <section class="stats-section" aria-label="Site statistics">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number" data-target="1200">0</div>
+                    <div class="stat-label">Active users</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-target="85">0</div>
+                    <div class="stat-label">Featured titles</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-target="240">0</div>
+                    <div class="stat-label">Gallery images</div>
+                </div>
+            </div>
         </section>
 
         <section class="featured">
@@ -79,13 +105,7 @@
 
         <section class="about">
             <h2 class="section-title">About this wiki</h2>
-            <p style="text-decoration: underline;">This mini-wiki is designed as a simple, readable reference for selected series.
-                Typography and color are tuned for long reading sessions.
-                Navigation is intentionally minimal to keep focus on content.This mini-wiki is designed as a simple, readable reference for selected series.
-                Typography and color are tuned for long reading sessions.
-                Navigation is intentionally minimal to keep focus on content.This mini-wiki is designed as a simple, readable reference for selected series.
-                Typography and color are tuned for long reading sessions.
-                Navigation is intentionally minimal to keep focus on content.</p>
+            <p style="text-decoration: underline;">This mini-wiki is designed as a simple, readable reference for selected series. Typography and color are tuned for long reading sessions. Navigation is intentionally minimal to keep focus on content.</p>
 
         </section>
         <section class="gallery-section">
@@ -144,11 +164,11 @@
 
             <button class="faq-question">Is there manga version of the wiki?</button>
             <div class="answer">No, but we are working to make one available in the future.</div>
-
+            
             <button class="faq-question">Is wiki free to use?</button>
             <div class="answer">Yes, the wiki is completely free to use, all content available without any subscriptions.</div>
         </div>
-
+                
         <button id="contact-toggle" class="form-button">Contact Us</button>
         <div id="form-window" class="form-window">
             <form class="form-container" aria-label="Contact form" id="contact-form">
@@ -188,8 +208,6 @@
         </div>
     </footer>
 </div>
-
 <script src="main.js"></script>
-
 </body>
 </html>
