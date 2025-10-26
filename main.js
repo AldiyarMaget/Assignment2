@@ -5,18 +5,30 @@ const accordionHeaders = document.querySelectorAll('.faq-question');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('message');
-const errorMessage = document.querySelector('.error');
+const formValidationMessage = document.getElementById('form-validation-message');
 
 contactWindow.addEventListener('submit', function(event) {
-
-    errorMessage.textContent = '';
+    event.preventDefault();
+    const btn = document.getElementById('submitBtn')
+    formValidationMessage.textContent = '';
     if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
-        event.preventDefault();
-        errorMessage.textContent = 'Заполните все поля формы.';
+        
+        formValidationMessage.textContent = 'Заполните все поля формы.';
+        formValidationMessage.style.color = 'red';
+        $('.validation-message').fadeIn(400).delay(2000).fadeOut(400)
         return;
     }
-
-    alert(`Спасибо за ваш отзыв!`);
+    else {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner">⏳</span> Please wait...';
+      setTimeout(() => {
+    btn.disabled = false;
+    btn.textContent = 'Send';
+    formValidationMessage.textContent = 'Форма принята!';
+    formValidationMessage.style.color = 'green';
+    $('.validation-message').fadeIn(400).delay(2000).fadeOut(400)
+  }, 2000);
+}
 });
 
 
